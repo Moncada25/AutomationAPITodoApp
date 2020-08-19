@@ -34,5 +34,7 @@ public class UserLogin implements Task {
         Enter.theValue(password).into(PASSWOORD_INPUT),
         Click.on(LOGIN_BUTTON)
     );
+
+    actor.remember("USER_LOGGED", user);
   }
 }

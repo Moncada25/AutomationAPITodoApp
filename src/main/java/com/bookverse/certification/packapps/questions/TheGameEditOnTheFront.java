@@ -41,8 +41,6 @@ public class TheGameEditOnTheFront implements Question<Boolean> {
     gameFromFront.setDescription(description);
     gameFromFront.setImage(image);
     gameFromFront.setCreated_at(date);
-    System.out.println("service: " + gameFromService.toString());
-    System.out.println("front: " + gameFromFront.toString());
 
     return gameFromFront.toString().equals(gameFromService.toString());
   }

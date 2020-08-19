@@ -4,6 +4,6 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class ProfileElements {
 
-  public static final Target UPDATE_PROFILE_BUTTON = Target.the("update profile button")
-      .locatedBy("//button[@id = 'toggleUpdate']");
+  public static final Target USER_LOGGED = Target.the("update profile button")
+      .locatedBy("//a[@id = 'userLogged']");
 }

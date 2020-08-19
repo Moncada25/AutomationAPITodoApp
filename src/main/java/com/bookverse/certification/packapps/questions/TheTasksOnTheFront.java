@@ -34,17 +34,20 @@ public class TheTasksOnTheFront implements Question<Boolean> {
     List<String> points = Text.of(POINTS_TASK).viewedBy(actor).asList();
     List<String> descriptions = Text.of(DESCRIPTION_TASK).viewedBy(actor).asList();
 
-    for (int i = 0; i < resultTasksService.size(); i++) {
-      String title = titles.get(i);
-      String assignment = assignments.get(i);
-      String point = points.get(i).replace(" points", "");
-      String description = descriptions.get(i);
+    if (!resultTasksService.isEmpty()) {
+      System.out.println(resultTasksService.size());
+      for (int i = 0; i < resultTasksService.size(); i++) {
+        String title = titles.get(i);
+        String assignment = assignments.get(i);
+        String point = points.get(i).replace(" points", "");
+        String description = descriptions.get(i);
 
-      if (!resultTasksService.get(i).getTitle().equals(title)
-          || !resultTasksService.get(i).getAssignment().equals(assignment)
-          || !resultTasksService.get(i).getPoints().equals(point)
-          || !resultTasksService.get(i).getDescription().equals(description)) {
-        return false;
+        if (!resultTasksService.get(i).getTitle().equals(title)
+            || !resultTasksService.get(i).getAssignment().equals(assignment)
+            || !resultTasksService.get(i).getPoints().equals(point)
+            || !resultTasksService.get(i).getDescription().equals(description)) {
+          return false;
+        }
       }
     }
 

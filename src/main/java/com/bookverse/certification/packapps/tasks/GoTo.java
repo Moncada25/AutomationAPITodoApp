@@ -2,6 +2,8 @@ package com.bookverse.certification.packapps.tasks;
 
 import static com.bookverse.certification.packapps.userinterfaces.NavBarElements.MENU_GAMES;
 import static com.bookverse.certification.packapps.userinterfaces.NavBarElements.MENU_LINK;
+import static com.bookverse.certification.packapps.userinterfaces.NavBarElements.MENU_TASKS;
+import static com.bookverse.certification.packapps.utils.Constants.ROUTE_GAMES;
 
 import com.bookverse.certification.packapps.userinterfaces.LoginElements;
 import net.serenitybdd.screenplay.Actor;
@@ -9,6 +11,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
 public class GoTo implements Task {
@@ -33,7 +36,9 @@ public class GoTo implements Task {
     actor.attemptsTo(
         Open.browserOn(new LoginElements()),
         UserLogin.successfully(user, password),
-        Click.on(MENU_GAMES),
+        Check.whether(route.equals(ROUTE_GAMES)).
+            andIfSo(Click.on(MENU_GAMES)).
+            otherwise(Click.on(MENU_TASKS)),
         Click.on(MENU_LINK.of(route))
     );
   }

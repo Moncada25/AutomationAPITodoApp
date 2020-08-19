@@ -11,9 +11,9 @@ public class FrontEditTaskElements {
   public static final Target POINTS_TASK = Target.the("Points of task to edit on frontend")
       .locatedBy("//input[@id = 'points']");
   public static final Target DESCRIPTION_TASK = Target.the("Title of task to edit on frontend")
-      .locatedBy("//input[@id = 'descriptionHidden']");
+      .locatedBy("//textarea[@id = 'description']");
   public static final Target ID_TASK = Target.the("ID of task to edit on frontend")
-      .locatedBy("//input[@id = 'id']");
+      .locatedBy("//input[@id = 'idHidden']");
   public static final Target DATE_TASK = Target.the("Date of task to edit on frontend")
       .locatedBy("//input[@id = 'dateHidden']");
 }

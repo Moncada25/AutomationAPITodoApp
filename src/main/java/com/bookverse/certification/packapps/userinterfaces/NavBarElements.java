@@ -6,6 +6,8 @@ public class NavBarElements {
 
   public static final Target MENU_GAMES = Target.the("menu games from app")
       .locatedBy("//a[@id = 'navbarGames']");
+  public static final Target MENU_TASKS = Target.the("menu games from app")
+      .locatedBy("//a[@id = 'navbarTasks']");
   public static final Target MENU_LINK = Target.the("menu link of {0} from app")
       .locatedBy("//a[@href = '/{0}']");
   public static final Target MENU_ACCOUNT = Target.the("menu account from app")

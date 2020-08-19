@@ -6,5 +6,5 @@ Feature: Login front
   @LoginSuccessfully
   Scenario: Login with correct credentials
     Given the user open page
-    When he enter your correct credentials root and root
+    When he enter your correct credentials smoncada and 1234
     Then he should see his profile

@@ -1,13 +1,19 @@
 package com.bookverse.certification.packapps.stepdefinitions;
 
+import static com.bookverse.certification.packapps.utils.Constants.GAMES_OF_FRONT_NOT_FOUND;
+import static com.bookverse.certification.packapps.utils.Constants.GAMES_OF_JSON_NOT_FOUND;
 import static com.bookverse.certification.packapps.utils.Constants.GAMES_USER_URL;
 import static com.bookverse.certification.packapps.utils.Constants.ROUTE_GAMES;
+import static com.bookverse.certification.packapps.utils.Constants.GAMES_SERVICE_NOT_RESPONSE;
 import static com.bookverse.certification.packapps.utils.Constants.USER;
 import static com.bookverse.certification.packapps.utils.RestService.BASE_URL;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
+import com.bookverse.certification.packapps.exceptions.FrontendNotPaint;
+import com.bookverse.certification.packapps.exceptions.JsonNotFound;
+import com.bookverse.certification.packapps.exceptions.ServiceNotResponse;
 import com.bookverse.certification.packapps.questions.LastResponseStatusCode;
 import com.bookverse.certification.packapps.questions.TheGameEditOnTheFront;
 import com.bookverse.certification.packapps.questions.TheGamesOnTheFront;
@@ -44,17 +50,20 @@ public class ConsultGamesStepDefinitions {
     );
   }
 
-  @When("^he looks for the game in the front with id (.*) and user (.*) and (.*)$")
-  public void heLooksForTheGameInTheFront(String id, String user, String password) {
+  @When("^he looks for the game in the front with id (.*) and credentials (.*) and (.*)$")
+  public void heLooksForTheGameInTheFrontWithIdAndCredentials(String id, String user,
+      String password) {
     theActorInTheSpotlight().attemptsTo(
-        Search.taskById(user, password, id)
+        Search.elementById(user, password, id, true)
     );
   }
 
   @Then("^he should see that the frontend game are the same as the API$")
   public void heShouldSeeThatTheFrontendGameAreTheSameAsTheAPI() {
-    theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)));
-    theActorInTheSpotlight().should(seeThat(TheGameEditOnTheFront.correspondToTheOfTheService()));
+    theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
+        ServiceNotResponse.class, GAMES_SERVICE_NOT_RESPONSE));
+    theActorInTheSpotlight().should(seeThat(TheGameEditOnTheFront.correspondToTheOfTheService()).orComplainWith(
+        FrontendNotPaint.class, GAMES_OF_FRONT_NOT_FOUND));
   }
 
   @When("^he gets the games from the json by user (.*)$")
@@ -71,13 +80,18 @@ public class ConsultGamesStepDefinitions {
 
   @Then("^he should see that the frontend games are the same as the API$")
   public void heShouldSeeThatTheFrontendGamesAreTheSameAsTheApi() {
-    theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)));
-    theActorInTheSpotlight().should(seeThat(TheGamesOnTheFront.correspondToThoseOfTheService()));
+    theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
+        ServiceNotResponse.class, GAMES_SERVICE_NOT_RESPONSE));
+    theActorInTheSpotlight().should(seeThat(TheGamesOnTheFront.correspondToThoseOfTheService()).orComplainWith(
+        FrontendNotPaint.class, GAMES_OF_FRONT_NOT_FOUND));
   }
 
   @Then("^he should see that the json games are the same as the API$")
   public void heShouldSeeThatTheJsonGamesAreTheSameAsTheApi() {
-    theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)));
-    theActorInTheSpotlight().should(seeThat(TheGamesOnTheJson.correspondToThoseOfTheService()));
+    theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
+        ServiceNotResponse.class, GAMES_SERVICE_NOT_RESPONSE));
+    theActorInTheSpotlight()
+        .should(seeThat(TheGamesOnTheJson.correspondToThoseOfTheService()).orComplainWith(
+            JsonNotFound.class, GAMES_OF_JSON_NOT_FOUND));
   }
 }

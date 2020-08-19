@@ -30,9 +30,9 @@ public class TheTaskEditOnTheFront implements Question<Boolean> {
     Task taskFromService = SerenityRest.lastResponse().body().as(taskType);
 
     String id = ID_TASK.resolveFor(actor).getAttribute("value");
-    String assignment = ASSIGNMENT_TASK.resolveFor(actor).getAttribute("ng-reflect-model");
-    String title = TITLE_TASK.resolveFor(actor).getAttribute("ng-reflect-model");
-    String points = POINTS_TASK.resolveFor(actor).getAttribute("ng-reflect-model");
+    String assignment = ASSIGNMENT_TASK.resolveFor(actor).getAttribute("value");
+    String title = TITLE_TASK.resolveFor(actor).getAttribute("value");
+    String points = POINTS_TASK.resolveFor(actor).getAttribute("value");
     String description = DESCRIPTION_TASK.resolveFor(actor).getAttribute("value");
     String date = DATE_TASK.resolveFor(actor).getAttribute("value");
 
