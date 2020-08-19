@@ -1,6 +1,6 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.ApiPageGames.GAMES_IN_JSON_FORMAT;
+import static com.bookverse.certification.packapps.userinterfaces.ApiPageGamesElements.GAMES_IN_JSON_FORMAT;
 
 import com.bookverse.certification.packapps.models.Game;
 import com.bookverse.certification.packapps.utils.ConverterJson;

@@ -1,10 +1,10 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGame.DATE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGame.DESCRIPTION_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGame.ID_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGame.IMAGE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGame.TITLE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.DATE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.DESCRIPTION_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.ID_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.IMAGE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.TITLE_GAME;
 
 import com.bookverse.certification.packapps.models.Game;
 import com.google.gson.reflect.TypeToken;
@@ -29,18 +29,20 @@ public class TheGameEditOnTheFront implements Question<Boolean> {
     }.getType();
     Game gameFromService = SerenityRest.lastResponse().body().as(gameType);
 
-    String id = Text.of(ID_GAME).viewedBy(actor).asString();
-    String title = TITLE_GAME.resolveFor(actor).getAttribute("ng-reflect-model");
-    String description = DESCRIPTION_GAME.resolveFor(actor).getAttribute("ng-reflect-model");
-    String image = IMAGE_GAME.resolveFor(actor).getAttribute("src");
+    String id = ID_GAME.resolveFor(actor).getAttribute("value");
+    String title = TITLE_GAME.resolveFor(actor).getAttribute("value");
+    String description = DESCRIPTION_GAME.resolveFor(actor).getAttribute("value");
+    String image = IMAGE_GAME.resolveFor(actor).getAttribute("value");
     String date = DATE_GAME.resolveFor(actor).getAttribute("value");
 
     Game gameFromFront = new Game();
-    gameFromFront.setId(id.substring(0, id.indexOf(",")));
+    gameFromFront.setId(id);
     gameFromFront.setTitle(title);
     gameFromFront.setDescription(description);
     gameFromFront.setImage(image);
     gameFromFront.setCreated_at(date);
+    System.out.println("service: " + gameFromService.toString());
+    System.out.println("front: " + gameFromFront.toString());
 
     return gameFromFront.toString().equals(gameFromService.toString());
   }

@@ -1,6 +1,8 @@
 package com.bookverse.certification.packapps.stepdefinitions;
 
-import static com.bookverse.certification.packapps.utils.Constants.*;
+import static com.bookverse.certification.packapps.utils.Constants.GAMES_USER_URL;
+import static com.bookverse.certification.packapps.utils.Constants.ROUTE_GAMES;
+import static com.bookverse.certification.packapps.utils.Constants.USER;
 import static com.bookverse.certification.packapps.utils.RestService.BASE_URL;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -10,9 +12,9 @@ import com.bookverse.certification.packapps.questions.LastResponseStatusCode;
 import com.bookverse.certification.packapps.questions.TheGameEditOnTheFront;
 import com.bookverse.certification.packapps.questions.TheGamesOnTheFront;
 import com.bookverse.certification.packapps.questions.TheGamesOnTheJson;
+import com.bookverse.certification.packapps.tasks.GoTo;
 import com.bookverse.certification.packapps.tasks.RequestConsultGames;
-import com.bookverse.certification.packapps.userinterfaces.ApiPageGames;
-import com.bookverse.certification.packapps.userinterfaces.FrontListGames;
+import com.bookverse.certification.packapps.tasks.Search;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -24,17 +26,15 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 public class ConsultGamesStepDefinitions {
 
-  private static final String USER = "Santiago";
-
   @Before
   public void prepareStage() {
     OnStage.setTheStage(new OnlineCast());
     theActorCalled(USER).whoCan(CallAnApi.at(BASE_URL.toString()));
   }
 
-  @Given("^the user consults all games in the api$")
-  public void theUserConsultsAllGamesInTheApi() {
-    theActorInTheSpotlight().attemptsTo(RequestConsultGames.all());
+  @Given("^the user consults all games in the api by user (.*)$")
+  public void theUserConsultsAllGamesInTheApiByUser(int idUser) {
+    theActorInTheSpotlight().attemptsTo(RequestConsultGames.byUser(idUser));
   }
 
   @Given("^the user consults a game by id (.*)$")
@@ -44,10 +44,10 @@ public class ConsultGamesStepDefinitions {
     );
   }
 
-  @When("^he looks for the game in the front with id (.*)$")
-  public void heLooksForTheGameInTheFront(String id) {
+  @When("^he looks for the game in the front with id (.*) and user (.*) and (.*)$")
+  public void heLooksForTheGameInTheFront(String id, String user, String password) {
     theActorInTheSpotlight().attemptsTo(
-      Open.url(EDIT_GAME_URL + id)
+        Search.taskById(user, password, id)
     );
   }
 
@@ -57,18 +57,16 @@ public class ConsultGamesStepDefinitions {
     theActorInTheSpotlight().should(seeThat(TheGameEditOnTheFront.correspondToTheOfTheService()));
   }
 
-  @When("^he gets the games from the json$")
-  public void heGetsTheGamesFromTheJson() {
+  @When("^he gets the games from the json by user (.*)$")
+  public void heGetsTheGamesFromTheJson(String id) {
     theActorInTheSpotlight().attemptsTo(
-        Open.browserOn(new ApiPageGames())
+        Open.url(GAMES_USER_URL + id)
     );
   }
 
-  @When("^he gets the games from the frontend$")
-  public void heGetTheGamesFromTheFrontend() {
-    theActorInTheSpotlight().attemptsTo(
-        Open.browserOn(new FrontListGames())
-    );
+  @When("^he gets the games from the frontend with credentials (.*) and (.*)$")
+  public void heGetTheGamesFromTheFrontendWithCredentials(String user, String password) {
+    theActorInTheSpotlight().attemptsTo(GoTo.route(user, password, ROUTE_GAMES));
   }
 
   @Then("^he should see that the frontend games are the same as the API$")

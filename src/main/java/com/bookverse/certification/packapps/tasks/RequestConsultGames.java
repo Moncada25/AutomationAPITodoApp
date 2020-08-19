@@ -12,30 +12,31 @@ import net.thucydides.core.annotations.Step;
 public class RequestConsultGames implements Task {
 
   private String idGame = null;
+  private int idUser;
 
   public RequestConsultGames(String idGame) {
     this.idGame = idGame;
   }
 
-  public RequestConsultGames() {
-
+  public RequestConsultGames(int idUser) {
+    this.idUser = idUser;
   }
 
   public static RequestConsultGames byId(String idGame) {
     return Tasks.instrumented(RequestConsultGames.class, idGame);
   }
 
-  public static RequestConsultGames all() {
-    return Tasks.instrumented(RequestConsultGames.class);
+  public static RequestConsultGames byUser(int idUser) {
+    return Tasks.instrumented(RequestConsultGames.class, idUser);
   }
 
-  @Step("Consult API for games")
+  @Step("{0} consult API for games")
   @Override
   public <T extends Actor> void performAs(T actor) {
 
     actor.attemptsTo(
         Check.whether(idGame != null).andIfSo(
             Get.resource(GET_GAMES.toString() + idGame)
-        ).otherwise(Get.resource(GET_GAMES.toString())));
+        ).otherwise(Get.resource(GET_GAMES.toString() + "user/" + idUser)));
   }
 }

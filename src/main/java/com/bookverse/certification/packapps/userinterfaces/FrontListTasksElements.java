@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("http://localhost:4200/tasks")
-public class FrontListTasks extends PageObject {
+public class FrontListTasksElements extends PageObject {
 
   public static final Target TITLE_TASK = Target.the("Title list of tasks on frontend")
       .locatedBy("//div[contains(@class, 'card-header')]//a");

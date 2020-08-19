@@ -1,11 +1,11 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTask.ASSIGNMENT_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTask.DATE_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTask.DESCRIPTION_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTask.ID_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTask.POINTS_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTask.TITLE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.ASSIGNMENT_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.DATE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.DESCRIPTION_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.ID_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.POINTS_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.TITLE_TASK;
 
 import com.bookverse.certification.packapps.models.Task;
 import com.google.gson.reflect.TypeToken;

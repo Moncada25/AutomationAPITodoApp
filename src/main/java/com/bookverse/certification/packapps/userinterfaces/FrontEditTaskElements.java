@@ -2,7 +2,7 @@ package com.bookverse.certification.packapps.userinterfaces;
 
 import net.serenitybdd.screenplay.targets.Target;
 
-public class FrontEditTask {
+public class FrontEditTaskElements {
 
   public static final Target ASSIGNMENT_TASK = Target.the("Assignment of task to edit on frontend")
       .locatedBy("//input[@id = 'assignment']");

@@ -1,9 +1,9 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasks.ASSIGNMENT_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasks.DESCRIPTION_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasks.POINTS_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasks.TITLE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.ASSIGNMENT_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.DESCRIPTION_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.POINTS_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.TITLE_TASK;
 
 import com.bookverse.certification.packapps.models.Task;
 import com.google.gson.reflect.TypeToken;

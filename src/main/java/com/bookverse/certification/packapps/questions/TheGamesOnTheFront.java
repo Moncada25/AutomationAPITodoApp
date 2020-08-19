@@ -1,9 +1,10 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontListGames.DESCRIPTION_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListGames.IMAGE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListGames.TITLE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontListGamesElements.DESCRIPTION_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontListGamesElements.IMAGE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontListGamesElements.TITLE_GAME;
 
+import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Game;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -21,7 +22,7 @@ public class TheGamesOnTheFront implements Question<Boolean> {
     return new TheGamesOnTheFront();
   }
 
-  @Subject("Compare results of frontend with service for games")
+  @Subject("compare results of frontend with service for games")
   @Override
   public Boolean answeredBy(Actor actor) {
 
@@ -33,19 +34,23 @@ public class TheGamesOnTheFront implements Question<Boolean> {
     List<String> descriptions = Text.of(DESCRIPTION_GAME).viewedBy(actor).asList();
     List<WebElementFacade> images = IMAGE_GAME.resolveAllFor(actor);
 
-    for (int i = 0; i < resultGamesService.size(); i++) {
+    if (!resultGamesService.isEmpty()) {
+      System.out.println("size: " + resultGamesService.size());
+      for (int i = 0; i < resultGamesService.size(); i++) {
 
-      String title = titles.get(i);
-      String description = descriptions.get(i);
-      String image = images.get(i).getAttribute("src");
+        String title = titles.get(i);
+        String description = descriptions.get(i);
+        String image = images.get(i).getAttribute("src");
 
-      if (!resultGamesService.get(i).getTitle().equals(title)
-          || !resultGamesService.get(i).getDescription().equals(description)
-          || !resultGamesService.get(i).getImage().equals(image)) {
-        return false;
+        if (!resultGamesService.get(i).getTitle().equals(title)
+            || !resultGamesService.get(i).getDescription().equals(description)
+            || !resultGamesService.get(i).getImage().equals(image)) {
+          return false;
+        }
       }
     }
 
+    actor.attemptsTo(Logout.fromApp());
     return true;
   }
 }
