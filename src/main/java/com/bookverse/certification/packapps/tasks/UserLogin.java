@@ -25,7 +25,7 @@ public class UserLogin implements Task {
     return Tasks.instrumented(UserLogin.class, user, password);
   }
 
-  @Step("{0} enter your credentials")
+  @Step("{0} login to app")
   @Override
   public <T extends Actor> void performAs(T actor) {
 

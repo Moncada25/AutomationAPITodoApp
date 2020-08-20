@@ -1,6 +1,6 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.ProfileElements.USER_LOGGED;
+import static com.bookverse.certification.packapps.userinterfaces.NavBarElements.USER_LOGGED;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;

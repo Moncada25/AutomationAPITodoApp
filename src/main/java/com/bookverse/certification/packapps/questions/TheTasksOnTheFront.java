@@ -1,15 +1,12 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.DATE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.ID_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.DATE_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.ID_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.ASSIGNMENT_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.DESCRIPTION_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.POINTS_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.TITLE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.DATE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.ID_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.ASSIGNMENT_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.DESCRIPTION_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.POINTS_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.TITLE_TASK;
 
-import com.bookverse.certification.packapps.models.Game;
 import com.bookverse.certification.packapps.models.Task;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;

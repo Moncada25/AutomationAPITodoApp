@@ -1,10 +1,10 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.DATE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.DESCRIPTION_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.ID_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.IMAGE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.TITLE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.DATE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.DESCRIPTION_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.ID_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.IMAGE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.TITLE_GAME;
 
 import com.bookverse.certification.packapps.models.Game;
 import com.google.gson.reflect.TypeToken;

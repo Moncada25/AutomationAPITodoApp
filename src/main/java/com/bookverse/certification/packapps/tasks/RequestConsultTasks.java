@@ -31,7 +31,7 @@ public class RequestConsultTasks implements Task {
     return Tasks.instrumented(RequestConsultTasks.class, idUser);
   }
 
-  @Step("Consult API for tasks")
+  @Step("{0} consult API for tasks")
   @Override
   public <T extends Actor> void performAs(T actor) {
 

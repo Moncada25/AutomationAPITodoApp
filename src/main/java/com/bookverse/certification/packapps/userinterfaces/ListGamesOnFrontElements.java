@@ -2,7 +2,7 @@ package com.bookverse.certification.packapps.userinterfaces;
 
 import net.serenitybdd.screenplay.targets.Target;
 
-public class FrontListGamesElements {
+public class ListGamesOnFrontElements {
 
   public static final Target TITLE_GAME = Target.the("title list of games on frontend")
       .locatedBy("//div[contains(@class, 'card-header')]//a");

@@ -2,7 +2,7 @@ package com.bookverse.certification.packapps.userinterfaces;
 
 import net.serenitybdd.screenplay.targets.Target;
 
-public class FrontEditGameElements {
+public class EditGameOnFrontElements {
 
   public static final Target TITLE_GAME = Target.the("title of game to edit on frontend")
       .locatedBy("//input[@id = 'title']");

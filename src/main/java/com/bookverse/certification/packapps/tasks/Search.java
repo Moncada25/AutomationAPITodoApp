@@ -29,7 +29,7 @@ public class Search implements Task {
     return Tasks.instrumented(Search.class, user, password, id, isGame);
   }
 
-  @Step("{0} search element by id")
+  @Step("{0} search element by id #id")
   @Override
   public <T extends Actor> void performAs(T actor) {
 

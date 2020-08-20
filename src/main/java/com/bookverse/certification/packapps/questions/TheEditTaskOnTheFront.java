@@ -1,11 +1,11 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.ASSIGNMENT_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.DATE_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.DESCRIPTION_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.ID_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.POINTS_TASK;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.TITLE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.ASSIGNMENT_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.DATE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.DESCRIPTION_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.ID_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.POINTS_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.TITLE_TASK;
 
 import com.bookverse.certification.packapps.models.Task;
 import com.google.gson.reflect.TypeToken;
@@ -21,7 +21,7 @@ public class TheEditTaskOnTheFront implements Question<Boolean> {
     return new TheEditTaskOnTheFront();
   }
 
-  @Subject("Compare results of frontend with service for task to edit")
+  @Subject("compare results of frontend with service for task to edit")
   @Override
   public Boolean answeredBy(Actor actor) {
 

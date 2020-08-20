@@ -1,10 +1,10 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.DATE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.ID_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListGamesElements.DESCRIPTION_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListGamesElements.IMAGE_GAME;
-import static com.bookverse.certification.packapps.userinterfaces.FrontListGamesElements.TITLE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.DATE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.ID_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.ListGamesOnFrontElements.DESCRIPTION_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.ListGamesOnFrontElements.IMAGE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.ListGamesOnFrontElements.TITLE_GAME;
 
 import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Game;
@@ -17,7 +17,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
 import net.serenitybdd.screenplay.questions.Text;
-import org.openqa.selenium.WebElement;
 
 public class TheGamesOnTheFront implements Question<Boolean> {
 
@@ -42,7 +41,7 @@ public class TheGamesOnTheFront implements Question<Boolean> {
     int index = 0;
     Game gameFromFront = new Game();
 
-    for (Game game: resultGamesService) {
+    for (Game game : resultGamesService) {
 
       gameFromFront.setId(ids.get(index).getAttribute("value"));
       gameFromFront.setTitle(titles.get(index));
@@ -52,7 +51,7 @@ public class TheGamesOnTheFront implements Question<Boolean> {
 
       index++;
 
-      if(!gameFromFront.toString().equals(game.toString())){
+      if (!gameFromFront.toString().equals(game.toString())) {
         return false;
       }
     }
