@@ -15,10 +15,10 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
 
-public class TheTaskEditOnTheFront implements Question<Boolean> {
+public class TheEditTaskOnTheFront implements Question<Boolean> {
 
-  public static TheTaskEditOnTheFront correspondToTheOfTheService() {
-    return new TheTaskEditOnTheFront();
+  public static TheEditTaskOnTheFront correspondToTheOfTheService() {
+    return new TheEditTaskOnTheFront();
   }
 
   @Subject("Compare results of frontend with service for task to edit")

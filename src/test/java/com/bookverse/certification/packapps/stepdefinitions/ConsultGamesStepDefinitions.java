@@ -15,7 +15,7 @@ import com.bookverse.certification.packapps.exceptions.FrontendNotPaint;
 import com.bookverse.certification.packapps.exceptions.JsonNotFound;
 import com.bookverse.certification.packapps.exceptions.ServiceNotResponse;
 import com.bookverse.certification.packapps.questions.LastResponseStatusCode;
-import com.bookverse.certification.packapps.questions.TheGameEditOnTheFront;
+import com.bookverse.certification.packapps.questions.TheEditGameOnTheFront;
 import com.bookverse.certification.packapps.questions.TheGamesOnTheFront;
 import com.bookverse.certification.packapps.questions.TheGamesOnTheJson;
 import com.bookverse.certification.packapps.tasks.GoTo;
@@ -62,7 +62,7 @@ public class ConsultGamesStepDefinitions {
   public void heShouldSeeThatTheFrontendGameAreTheSameAsTheAPI() {
     theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
         ServiceNotResponse.class, GAMES_SERVICE_NOT_RESPONSE));
-    theActorInTheSpotlight().should(seeThat(TheGameEditOnTheFront.correspondToTheOfTheService()).orComplainWith(
+    theActorInTheSpotlight().should(seeThat(TheEditGameOnTheFront.correspondToTheOfTheService()).orComplainWith(
         FrontendNotPaint.class, GAMES_OF_FRONT_NOT_FOUND));
   }
 
