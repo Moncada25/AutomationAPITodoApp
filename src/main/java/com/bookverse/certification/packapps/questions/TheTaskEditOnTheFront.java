@@ -7,6 +7,7 @@ import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFron
 import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.POINTS_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.TITLE_TASK;
 
+import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Task;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -15,10 +16,10 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
 
-public class TheEditTaskOnTheFront implements Question<Boolean> {
+public class TheTaskEditOnTheFront implements Question<Boolean> {
 
-  public static TheEditTaskOnTheFront correspondToTheOfTheService() {
-    return new TheEditTaskOnTheFront();
+  public static TheTaskEditOnTheFront correspondToTheOfTheService() {
+    return new TheTaskEditOnTheFront();
   }
 
   @Subject("compare results of frontend with service for task to edit")
@@ -44,6 +45,7 @@ public class TheEditTaskOnTheFront implements Question<Boolean> {
     taskFromFront.setDescription(description);
     taskFromFront.setCreated_at(date);
 
+    actor.attemptsTo(Logout.fromApp());
     return taskFromFront.toString().equals(taskFromService.toString());
   }
 }

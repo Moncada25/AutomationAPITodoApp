@@ -7,6 +7,7 @@ import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFro
 import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.POINTS_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.TITLE_TASK;
 
+import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Task;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -58,6 +59,7 @@ public class TheTasksOnTheFront implements Question<Boolean> {
       }
     }
 
+    actor.attemptsTo(Logout.fromApp());
     return true;
   }
 }

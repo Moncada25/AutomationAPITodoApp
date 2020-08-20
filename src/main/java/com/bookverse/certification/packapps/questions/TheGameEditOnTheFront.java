@@ -6,6 +6,7 @@ import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFron
 import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.IMAGE_GAME;
 import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.TITLE_GAME;
 
+import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Game;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -14,10 +15,10 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
 
-public class TheEditGameOnTheFront implements Question<Boolean> {
+public class TheGameEditOnTheFront implements Question<Boolean> {
 
-  public static TheEditGameOnTheFront correspondToTheOfTheService() {
-    return new TheEditGameOnTheFront();
+  public static TheGameEditOnTheFront correspondToTheOfTheService() {
+    return new TheGameEditOnTheFront();
   }
 
   @Subject("compare results of frontend with service for game to edit")
@@ -41,6 +42,7 @@ public class TheEditGameOnTheFront implements Question<Boolean> {
     gameFromFront.setImage(image);
     gameFromFront.setCreated_at(date);
 
+    actor.attemptsTo(Logout.fromApp());
     return gameFromFront.toString().equals(gameFromService.toString());
   }
 }
