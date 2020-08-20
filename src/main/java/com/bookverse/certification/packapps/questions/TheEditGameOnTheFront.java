@@ -13,15 +13,14 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
-import net.serenitybdd.screenplay.questions.Text;
 
-public class TheGameEditOnTheFront implements Question<Boolean> {
+public class TheEditGameOnTheFront implements Question<Boolean> {
 
-  public static TheGameEditOnTheFront correspondToTheOfTheService() {
-    return new TheGameEditOnTheFront();
+  public static TheEditGameOnTheFront correspondToTheOfTheService() {
+    return new TheEditGameOnTheFront();
   }
 
-  @Subject("Compare results of frontend with service for game to edit")
+  @Subject("compare results of frontend with service for game to edit")
   @Override
   public Boolean answeredBy(Actor actor) {
 

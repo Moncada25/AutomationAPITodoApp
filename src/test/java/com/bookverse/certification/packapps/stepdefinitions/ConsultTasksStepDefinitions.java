@@ -12,7 +12,7 @@ import com.bookverse.certification.packapps.exceptions.FrontendNotPaint;
 import com.bookverse.certification.packapps.exceptions.JsonNotFound;
 import com.bookverse.certification.packapps.exceptions.ServiceNotResponse;
 import com.bookverse.certification.packapps.questions.LastResponseStatusCode;
-import com.bookverse.certification.packapps.questions.TheTaskEditOnTheFront;
+import com.bookverse.certification.packapps.questions.TheEditTaskOnTheFront;
 import com.bookverse.certification.packapps.questions.TheTasksOnTheFront;
 import com.bookverse.certification.packapps.questions.TheTasksOnTheJson;
 import com.bookverse.certification.packapps.tasks.GoTo;
@@ -51,7 +51,7 @@ public class ConsultTasksStepDefinitions {
   public void heShouldSeeThatTheFrontendTaskAreTheSameAsTheAPI() {
     theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
         ServiceNotResponse.class, TASKS_SERVICE_NOT_RESPONSE));
-    theActorInTheSpotlight().should(seeThat(TheTaskEditOnTheFront.correspondToTheOfTheService()).orComplainWith(FrontendNotPaint.class, TASKS_OF_FRONT_NOT_FOUND));
+    theActorInTheSpotlight().should(seeThat(TheEditTaskOnTheFront.correspondToTheOfTheService()).orComplainWith(FrontendNotPaint.class, TASKS_OF_FRONT_NOT_FOUND));
   }
 
   @When("^he gets the tasks from the json by user (.*)$")

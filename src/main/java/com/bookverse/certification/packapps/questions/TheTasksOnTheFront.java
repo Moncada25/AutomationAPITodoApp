@@ -1,14 +1,20 @@
 package com.bookverse.certification.packapps.questions;
 
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.DATE_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditGameElements.ID_GAME;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.DATE_TASK;
+import static com.bookverse.certification.packapps.userinterfaces.FrontEditTaskElements.ID_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.ASSIGNMENT_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.DESCRIPTION_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.POINTS_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.FrontListTasksElements.TITLE_TASK;
 
+import com.bookverse.certification.packapps.models.Game;
 import com.bookverse.certification.packapps.models.Task;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
@@ -21,7 +27,7 @@ public class TheTasksOnTheFront implements Question<Boolean> {
     return new TheTasksOnTheFront();
   }
 
-  @Subject("Compare results of frontend with service for tasks")
+  @Subject("compare results of frontend with service for tasks")
   @Override
   public Boolean answeredBy(Actor actor) {
 
@@ -29,25 +35,29 @@ public class TheTasksOnTheFront implements Question<Boolean> {
     }.getType();
     List<Task> resultTasksService = SerenityRest.lastResponse().body().as(tasksType);
 
+    List<WebElementFacade> ids = ID_TASK.resolveAllFor(actor);
     List<String> titles = Text.of(TITLE_TASK).viewedBy(actor).asList();
     List<String> assignments = Text.of(ASSIGNMENT_TASK).viewedBy(actor).asList();
     List<String> points = Text.of(POINTS_TASK).viewedBy(actor).asList();
     List<String> descriptions = Text.of(DESCRIPTION_TASK).viewedBy(actor).asList();
+    List<WebElementFacade> dates = DATE_TASK.resolveAllFor(actor);
 
-    if (!resultTasksService.isEmpty()) {
-      System.out.println(resultTasksService.size());
-      for (int i = 0; i < resultTasksService.size(); i++) {
-        String title = titles.get(i);
-        String assignment = assignments.get(i);
-        String point = points.get(i).replace(" points", "");
-        String description = descriptions.get(i);
+    int index = 0;
+    Task taskFromFront = new Task();
 
-        if (!resultTasksService.get(i).getTitle().equals(title)
-            || !resultTasksService.get(i).getAssignment().equals(assignment)
-            || !resultTasksService.get(i).getPoints().equals(point)
-            || !resultTasksService.get(i).getDescription().equals(description)) {
-          return false;
-        }
+    for (Task task: resultTasksService) {
+
+      taskFromFront.setId(ids.get(index).getAttribute("value"));
+      taskFromFront.setTitle(titles.get(index));
+      taskFromFront.setAssignment(assignments.get(index));
+      taskFromFront.setPoints(points.get(index).replace(" points", ""));
+      taskFromFront.setDescription(descriptions.get(index));
+      taskFromFront.setCreated_at(dates.get(index).getAttribute("value"));
+
+      index++;
+
+      if(!taskFromFront.toString().equals(task.toString())){
+        return false;
       }
     }
 
