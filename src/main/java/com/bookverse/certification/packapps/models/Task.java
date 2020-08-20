@@ -17,40 +17,20 @@ public class Task {
     this.id = id;
   }
 
-  public String getAssignment() {
-    return assignment;
-  }
-
   public void setAssignment(String assignment) {
     this.assignment = assignment;
-  }
-
-  public String getTitle() {
-    return title;
   }
 
   public void setTitle(String title) {
     this.title = title;
   }
 
-  public String getDescription() {
-    return description;
-  }
-
   public void setDescription(String description) {
     this.description = description;
   }
 
-  public String getPoints() {
-    return points;
-  }
-
   public void setPoints(String points) {
     this.points = points;
-  }
-
-  public String getCreated_at() {
-    return created_at;
   }
 
   public void setCreated_at(String created_at) {

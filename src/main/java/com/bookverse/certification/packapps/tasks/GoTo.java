@@ -30,7 +30,7 @@ public class GoTo implements Task {
     return Tasks.instrumented(GoTo.class, user, password, route);
   }
 
-  @Step("{0} go to the #route")
+  @Step("{0} go to the route #route")
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(

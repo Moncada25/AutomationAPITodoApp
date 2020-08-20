@@ -1,6 +1,6 @@
 package com.bookverse.certification.packapps.questions;
 
-import static com.bookverse.certification.packapps.userinterfaces.ApiPageGamesElements.GAMES_IN_JSON_FORMAT;
+import static com.bookverse.certification.packapps.userinterfaces.ApiTasksElements.TASKS_IN_JSON_FORMAT;
 
 import com.bookverse.certification.packapps.models.Task;
 import com.bookverse.certification.packapps.utils.ConverterJson;
@@ -18,14 +18,15 @@ public class TheTasksOnTheJson implements Question<Boolean> {
     return new TheTasksOnTheJson();
   }
 
-  @Subject("Compare results of json and service for tasks")
+  @Subject("compare results of json and service for tasks")
   @Override
   public Boolean answeredBy(Actor actor) {
 
-    Type tasksType = new TypeToken<Collection<Task>>(){}.getType();
+    Type tasksType = new TypeToken<Collection<Task>>() {
+    }.getType();
 
     Collection<Task> resultTasksWeb = ConverterJson
-        .fromJson(GAMES_IN_JSON_FORMAT.resolveFor(actor).getText(), tasksType);
+        .fromJson(TASKS_IN_JSON_FORMAT.resolveFor(actor).getText(), tasksType);
     Collection<Task> resultTasksService = SerenityRest.lastResponse().body().as(tasksType);
 
     System.out.println("\nResult of /tasks on service: " + resultTasksService.toString());

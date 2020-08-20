@@ -12,4 +12,6 @@ public class NavBarElements {
       .locatedBy("//a[@href = '/{0}']");
   public static final Target MENU_ACCOUNT = Target.the("menu account from app")
       .locatedBy("//a[@id = 'navbarAccount']");
+  public static final Target USER_LOGGED = Target.the("update profile button")
+      .locatedBy("//a[@id = 'userLogged']");
 }
