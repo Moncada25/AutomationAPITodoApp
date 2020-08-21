@@ -13,4 +13,6 @@ public class LoginElements extends PageObject {
       .locatedBy("//input[@id = 'password']");
   public static final Target LOGIN_BUTTON = Target.the("login button")
       .locatedBy("//button[@id = 'btnLogin']");
+  public static final Target MESSAGE_ALERT = Target.the("message alert")
+      .locatedBy("//div[@id = 'swal2-content']");
 }

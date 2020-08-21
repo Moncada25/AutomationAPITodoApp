@@ -16,5 +16,7 @@ public class Constants {
   public static final String TASKS_OF_JSON_NOT_FOUND = "tasks from json not found";
   public static final String TASKS_SERVICE_NOT_RESPONSE = "tasks service not response";
   public static final String TASKS_OF_FRONT_NOT_FOUND = "tasks from frontend not found";
+  public static final String USER_NOT_FOUND = "the user logged not found";
+  public static final String MESSAGE_NOT_FOUND = "the message alert no found";
 
 }

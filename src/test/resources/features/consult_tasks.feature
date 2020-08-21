@@ -1,6 +1,6 @@
 Feature: Consult tasks
   I, as a consumer of the API
-  I, want to consult the tasks to know their information
+  I want to consult the tasks to know their information
 
   @CompareTasksWithJSON
   Scenario Outline: Consult tasks and compare with JSON

@@ -1,6 +1,6 @@
 Feature: Consult games
   I, as a consumer of the API
-  I, want to consult the games to know their information
+  I want to consult the games to know their information
 
   @CompareGamesWithJSON
   Scenario Outline: Consult games and compare with JSON

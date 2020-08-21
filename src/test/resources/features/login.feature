@@ -4,7 +4,21 @@ Feature: Login front
   to verify correct operation
 
   @LoginSuccessfully
-  Scenario: Login with correct credentials
+  Scenario Outline: Login with correct credentials
     Given the user open page
-    When he enter your correct credentials smoncada and 1234
+    When he enter your correct credentials <user> and <password>
     Then he should see his profile
+
+    Examples:
+      | user     | password |
+      | smoncada | 1234     |
+
+  @LoginFailed
+  Scenario Outline: Login with incorrect credentials
+    Given the user open page
+    When he enter your correct credentials <user> and <password>
+    Then he should see that The user is not registered
+
+    Examples:
+      | user    | password |
+      | ejemplo | ejemplo  |
