@@ -1,8 +1,13 @@
 package com.bookverse.certification.packapps.stepdefinitions;
 
+import static com.bookverse.certification.packapps.utils.Constants.MESSAGE_NOT_FOUND;
+import static com.bookverse.certification.packapps.utils.Constants.USER_NOT_FOUND;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
+import com.bookverse.certification.packapps.exceptions.MessageNotFound;
+import com.bookverse.certification.packapps.exceptions.UserNotFound;
+import com.bookverse.certification.packapps.questions.TheMessageError;
 import com.bookverse.certification.packapps.questions.TheUser;
 import com.bookverse.certification.packapps.tasks.UserLogin;
 import com.bookverse.certification.packapps.userinterfaces.LoginElements;
@@ -27,6 +32,13 @@ public class LoginStepDefinitions {
 
   @Then("^he should see his profile$")
   public void heShouldSeeHisProfile() {
-    theActorInTheSpotlight().should(seeThat(TheUser.loggedIn()));
+    theActorInTheSpotlight().should(seeThat(TheUser.loggedIn()).orComplainWith(UserNotFound.class, USER_NOT_FOUND));
   }
+
+  @Then("^he should see that (.*)$")
+  public void heShouldSeeThatTheUserIsNotRegistered(String message) {
+    theActorInTheSpotlight().should(seeThat(TheMessageError.is(message)).orComplainWith(
+        MessageNotFound.class, MESSAGE_NOT_FOUND));
+  }
+
 }
