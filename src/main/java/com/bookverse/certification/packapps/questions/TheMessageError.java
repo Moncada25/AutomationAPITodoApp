@@ -24,7 +24,6 @@ public class TheMessageError implements Question<Boolean> {
   public Boolean answeredBy(Actor actor) {
 
     String messageFront = Text.of(MESSAGE_ALERT).viewedBy(actor).asString();
-
-    return messageFront.equals(message);
+    return messageFront.trim().equals(message.trim());
   }
 }
