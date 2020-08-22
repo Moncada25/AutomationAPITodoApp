@@ -11,6 +11,7 @@ Feature: Consult tasks
     Examples:
       | idUser |
       | 1      |
+      | 2      |
 
   @CompareTasksWithFrontend
   Scenario Outline: Consult tasks and compare with Frontend
@@ -21,6 +22,7 @@ Feature: Consult tasks
     Examples:
       | idUser | user     | password |
       | 1      | smoncada | 1234     |
+      | 2      | root     | root     |
 
   @ConsultTaskById
   Scenario Outline: Consult a task by id
@@ -31,3 +33,4 @@ Feature: Consult tasks
     Examples:
       | idTask | user     | password |
       | 7      | smoncada | 1234     |
+      | 23     | root     | root     |

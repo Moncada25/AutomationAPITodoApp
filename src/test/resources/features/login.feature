@@ -3,22 +3,24 @@ Feature: Login front
   I need to login with my credentials
   to verify correct operation
 
-  @LoginSuccessfully
-  Scenario Outline: Login with correct credentials
-    Given the user open page
-    When he enter your correct credentials <user> and <password>
-    Then he should see his profile
-
-    Examples:
-      | user     | password |
-      | smoncada | 1234     |
+#  @LoginSuccessfully
+#  Scenario Outline: Login with correct credentials
+#    Given the user open page
+#    When he enter your correct credentials <user> and <password>
+#    Then he should see his profile
+#
+#    Examples:
+#      | user     | password |
+#      | smoncada | 1234     |
+#      | root     | root     |
 
   @LoginFailed
   Scenario Outline: Login with incorrect credentials
     Given the user open page
     When he enter your correct credentials <user> and <password>
-    Then he should see that The user is not registered
+    Then he should see that the message The user is not registered
 
     Examples:
       | user    | password |
-      | ejemplo | ejemplo  |
+      | example | example  |
+      | user    | password |

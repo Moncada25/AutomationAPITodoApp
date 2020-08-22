@@ -11,6 +11,7 @@ Feature: Consult games
     Examples:
       | idUser |
       | 1      |
+      | 2      |
 
   @CompareGamesWithFrontend
   Scenario Outline: Consult games and compare with Frontend
@@ -21,6 +22,7 @@ Feature: Consult games
     Examples:
       | idUser | user     | password |
       | 1      | smoncada | 1234     |
+      | 2      | root     | root     |
 
   @ConsultGameById
   Scenario Outline: Consult a game by id
@@ -31,3 +33,4 @@ Feature: Consult games
     Examples:
       | idGame | user     | password |
       | 3      | smoncada | 1234     |
+      | 2      | root     | root     |

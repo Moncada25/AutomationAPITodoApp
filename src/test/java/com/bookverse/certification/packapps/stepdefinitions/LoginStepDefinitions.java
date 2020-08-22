@@ -35,8 +35,8 @@ public class LoginStepDefinitions {
     theActorInTheSpotlight().should(seeThat(TheUser.loggedIn()).orComplainWith(UserNotFound.class, USER_NOT_FOUND));
   }
 
-  @Then("^he should see that (.*)$")
-  public void heShouldSeeThatTheUserIsNotRegistered(String message) {
+  @Then("^he should see that the message(.*)$")
+  public void heShouldSeeThatTheMessage(String message) {
     theActorInTheSpotlight().should(seeThat(TheMessageError.is(message)).orComplainWith(
         MessageNotFound.class, MESSAGE_NOT_FOUND));
   }
