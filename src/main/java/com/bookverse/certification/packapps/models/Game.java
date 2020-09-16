@@ -6,7 +6,7 @@ public class Game {
   private String title;
   private String description;
   private String image;
-  private String created_at;
+  private String createdAt;
 
   public String getId() {
     return id;
@@ -28,8 +28,8 @@ public class Game {
     this.image = image;
   }
 
-  public void setCreated_at(String created_at) {
-    this.created_at = created_at;
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
   }
 
   @Override
@@ -40,7 +40,7 @@ public class Game {
     result += "   title: " + title + ",\n";
     result += "   description: " + description + ",\n";
     result += "   image: " + image + ",\n";
-    result += "   created_at: " + created_at + "\n";
+    result += "   created_at: " + createdAt + "\n";
     result += "}";
 
     return result;

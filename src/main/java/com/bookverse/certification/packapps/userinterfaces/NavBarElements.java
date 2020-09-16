@@ -14,4 +14,7 @@ public class NavBarElements {
       .locatedBy("//a[@id = 'navbarAccount']");
   public static final Target USER_LOGGED = Target.the("update profile button")
       .locatedBy("//a[@id = 'userLogged']");
+
+  private NavBarElements() {
+  }
 }

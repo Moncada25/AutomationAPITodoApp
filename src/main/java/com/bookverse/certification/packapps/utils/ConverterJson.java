@@ -8,6 +8,9 @@ public class ConverterJson {
 
   private static Gson gson;
 
+  private ConverterJson() {
+  }
+
   public static <T> T fromJson(String json, Type typeOfT) {
     gson = getGson();
     return gson.fromJson(json, typeOfT);

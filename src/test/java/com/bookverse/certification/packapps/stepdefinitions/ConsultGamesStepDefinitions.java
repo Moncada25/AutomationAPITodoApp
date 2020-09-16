@@ -2,9 +2,9 @@ package com.bookverse.certification.packapps.stepdefinitions;
 
 import static com.bookverse.certification.packapps.utils.Constants.GAMES_OF_FRONT_NOT_FOUND;
 import static com.bookverse.certification.packapps.utils.Constants.GAMES_OF_JSON_NOT_FOUND;
+import static com.bookverse.certification.packapps.utils.Constants.GAMES_SERVICE_NOT_RESPONSE;
 import static com.bookverse.certification.packapps.utils.Constants.GAMES_USER_URL;
 import static com.bookverse.certification.packapps.utils.Constants.ROUTE_GAMES;
-import static com.bookverse.certification.packapps.utils.Constants.GAMES_SERVICE_NOT_RESPONSE;
 import static com.bookverse.certification.packapps.utils.Constants.USER;
 import static com.bookverse.certification.packapps.utils.RestService.BASE_URL;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -62,8 +62,9 @@ public class ConsultGamesStepDefinitions {
   public void heShouldSeeThatTheFrontendGameAreTheSameAsTheAPI() {
     theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
         ServiceNotResponse.class, GAMES_SERVICE_NOT_RESPONSE));
-    theActorInTheSpotlight().should(seeThat(TheGameEditOnTheFront.correspondToTheOfTheService()).orComplainWith(
-        FrontendNotPaint.class, GAMES_OF_FRONT_NOT_FOUND));
+    theActorInTheSpotlight()
+        .should(seeThat(TheGameEditOnTheFront.correspondToTheOfTheService()).orComplainWith(
+            FrontendNotPaint.class, GAMES_OF_FRONT_NOT_FOUND));
   }
 
   @When("^he gets the games from the json by user (.*)$")
@@ -82,8 +83,9 @@ public class ConsultGamesStepDefinitions {
   public void heShouldSeeThatTheFrontendGamesAreTheSameAsTheApi() {
     theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
         ServiceNotResponse.class, GAMES_SERVICE_NOT_RESPONSE));
-    theActorInTheSpotlight().should(seeThat(TheGamesOnTheFront.correspondToThoseOfTheService()).orComplainWith(
-        FrontendNotPaint.class, GAMES_OF_FRONT_NOT_FOUND));
+    theActorInTheSpotlight()
+        .should(seeThat(TheGamesOnTheFront.correspondToThoseOfTheService()).orComplainWith(
+            FrontendNotPaint.class, GAMES_OF_FRONT_NOT_FOUND));
   }
 
   @Then("^he should see that the json games are the same as the API$")

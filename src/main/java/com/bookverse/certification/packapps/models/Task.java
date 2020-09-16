@@ -7,7 +7,7 @@ public class Task {
   private String title;
   private String description;
   private String points;
-  private String created_at;
+  private String createdAt;
 
   public String getId() {
     return id;
@@ -33,8 +33,8 @@ public class Task {
     this.points = points;
   }
 
-  public void setCreated_at(String created_at) {
-    this.created_at = created_at;
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
   }
 
   @Override
@@ -46,7 +46,7 @@ public class Task {
     result += "   title: "+title+",\n";
     result += "   description: "+description+",\n";
     result += "   points: "+points+",\n";
-    result += "   created_at: "+created_at+"\n";
+    result += "   created_at: "+ createdAt +"\n";
     result += "}";
 
     return result;

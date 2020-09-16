@@ -29,8 +29,9 @@ public class TheTasksOnTheJson implements Question<Boolean> {
         .fromJson(TASKS_IN_JSON_FORMAT.resolveFor(actor).getText(), tasksType);
     Collection<Task> resultTasksService = SerenityRest.lastResponse().body().as(tasksType);
 
-    System.out.println("\nResult of /tasks on service: " + resultTasksService.toString());
-
     return resultTasksWeb.toString().equals(resultTasksService.toString());
+  }
+
+  private TheTasksOnTheJson() {
   }
 }

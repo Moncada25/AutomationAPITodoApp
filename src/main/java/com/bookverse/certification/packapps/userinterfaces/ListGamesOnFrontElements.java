@@ -10,4 +10,7 @@ public class ListGamesOnFrontElements {
       .locatedBy("//h6[@id = 'description']");
   public static final Target IMAGE_GAME = Target.the("image list of games on frontend")
       .locatedBy("//img[@class = 'card-img-top']");
+
+  private ListGamesOnFrontElements() {
+  }
 }

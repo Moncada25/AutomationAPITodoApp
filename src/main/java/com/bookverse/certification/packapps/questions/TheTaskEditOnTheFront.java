@@ -6,6 +6,7 @@ import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFron
 import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.ID_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.POINTS_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.EditTaskOnFrontElements.TITLE_TASK;
+import static com.bookverse.certification.packapps.utils.Constants.ATTRIBUTE_VALUE;
 
 import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Task;
@@ -17,6 +18,9 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
 
 public class TheTaskEditOnTheFront implements Question<Boolean> {
+
+  private TheTaskEditOnTheFront() {
+  }
 
   public static TheTaskEditOnTheFront correspondToTheOfTheService() {
     return new TheTaskEditOnTheFront();
@@ -30,12 +34,12 @@ public class TheTaskEditOnTheFront implements Question<Boolean> {
     }.getType();
     Task taskFromService = SerenityRest.lastResponse().body().as(taskType);
 
-    String id = ID_TASK.resolveFor(actor).getAttribute("value");
-    String assignment = ASSIGNMENT_TASK.resolveFor(actor).getAttribute("value");
-    String title = TITLE_TASK.resolveFor(actor).getAttribute("value");
-    String points = POINTS_TASK.resolveFor(actor).getAttribute("value");
-    String description = DESCRIPTION_TASK.resolveFor(actor).getAttribute("value");
-    String date = DATE_TASK.resolveFor(actor).getAttribute("value");
+    String id = ID_TASK.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String assignment = ASSIGNMENT_TASK.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String title = TITLE_TASK.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String points = POINTS_TASK.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String description = DESCRIPTION_TASK.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String date = DATE_TASK.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
 
     Task taskFromFront = new Task();
     taskFromFront.setId(id);
@@ -43,7 +47,7 @@ public class TheTaskEditOnTheFront implements Question<Boolean> {
     taskFromFront.setTitle(title);
     taskFromFront.setPoints(points);
     taskFromFront.setDescription(description);
-    taskFromFront.setCreated_at(date);
+    taskFromFront.setCreatedAt(date);
 
     actor.attemptsTo(Logout.fromApp());
     return taskFromFront.toString().equals(taskFromService.toString());

@@ -38,6 +38,7 @@ target
 *.classpath
 .idea
 out
+/.scannerwork/
 
 # Not ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !/gradle/wrapper/gradle-wrapper.jar

@@ -15,5 +15,8 @@ public class EditGameOnFrontElements {
       .locatedBy("//input[@id = 'idHidden']");
   public static final Target DATE_GAME = Target.the("date of game to edit on frontend")
       .locatedBy("//input[@id = 'dateHidden']");
+
+  private EditGameOnFrontElements(){
+  }
 }
 

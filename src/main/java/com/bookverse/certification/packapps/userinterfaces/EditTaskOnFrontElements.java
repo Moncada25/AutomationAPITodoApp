@@ -16,4 +16,7 @@ public class EditTaskOnFrontElements {
       .locatedBy("//input[@id = 'idHidden']");
   public static final Target DATE_TASK = Target.the("date of task to edit on frontend")
       .locatedBy("//input[@id = 'dateHidden']");
+
+  private EditTaskOnFrontElements() {
+  }
 }

@@ -2,6 +2,8 @@ package com.bookverse.certification.packapps.utils;
 
 public class Constants {
 
+  public static final String LOGIN_FRONT = "http://localhost:4200/login";
+  public static final String ATTRIBUTE_VALUE = "value";
   public static final String EDIT_GAME_URL = "http://localhost:4200/games/edit/";
   public static final String EDIT_TASK_URL = "http://localhost:4200/tasks/edit/";
   public static final String GAMES_USER_URL = "http://localhost:3000/api/games/user/";
@@ -19,4 +21,6 @@ public class Constants {
   public static final String USER_NOT_FOUND = "the user logged not found";
   public static final String MESSAGE_NOT_FOUND = "the message alert no found";
 
+  private Constants() {
+  }
 }

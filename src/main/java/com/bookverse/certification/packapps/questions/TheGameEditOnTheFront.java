@@ -5,6 +5,7 @@ import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFron
 import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.ID_GAME;
 import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.IMAGE_GAME;
 import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFrontElements.TITLE_GAME;
+import static com.bookverse.certification.packapps.utils.Constants.ATTRIBUTE_VALUE;
 
 import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Game;
@@ -29,18 +30,18 @@ public class TheGameEditOnTheFront implements Question<Boolean> {
     }.getType();
     Game gameFromService = SerenityRest.lastResponse().body().as(gameType);
 
-    String id = ID_GAME.resolveFor(actor).getAttribute("value");
-    String title = TITLE_GAME.resolveFor(actor).getAttribute("value");
-    String description = DESCRIPTION_GAME.resolveFor(actor).getAttribute("value");
-    String image = IMAGE_GAME.resolveFor(actor).getAttribute("value");
-    String date = DATE_GAME.resolveFor(actor).getAttribute("value");
+    String id = ID_GAME.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String title = TITLE_GAME.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String description = DESCRIPTION_GAME.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String image = IMAGE_GAME.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
+    String date = DATE_GAME.resolveFor(actor).getAttribute(ATTRIBUTE_VALUE);
 
     Game gameFromFront = new Game();
     gameFromFront.setId(id);
     gameFromFront.setTitle(title);
     gameFromFront.setDescription(description);
     gameFromFront.setImage(image);
-    gameFromFront.setCreated_at(date);
+    gameFromFront.setCreatedAt(date);
 
     actor.attemptsTo(Logout.fromApp());
     return gameFromFront.toString().equals(gameFromService.toString());

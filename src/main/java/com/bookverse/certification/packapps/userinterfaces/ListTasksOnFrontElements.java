@@ -16,4 +16,6 @@ public class ListTasksOnFrontElements extends PageObject {
   public static final Target DESCRIPTION_TASK = Target.the("description list of tasks on frontend")
       .locatedBy("//h5[@id='description']");
 
+  private ListTasksOnFrontElements() {
+  }
 }
