@@ -6,6 +6,7 @@ import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFro
 import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.DESCRIPTION_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.POINTS_TASK;
 import static com.bookverse.certification.packapps.userinterfaces.ListTasksOnFrontElements.TITLE_TASK;
+import static com.bookverse.certification.packapps.utils.Constants.ATTRIBUTE_VALUE;
 
 import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Task;
@@ -45,12 +46,12 @@ public class TheTasksOnTheFront implements Question<Boolean> {
 
     for (Task task: resultTasksService) {
 
-      taskFromFront.setId(ids.get(index).getAttribute("value"));
+      taskFromFront.setId(ids.get(index).getAttribute(ATTRIBUTE_VALUE));
       taskFromFront.setTitle(titles.get(index));
       taskFromFront.setAssignment(assignments.get(index));
       taskFromFront.setPoints(points.get(index).replace(" points", ""));
       taskFromFront.setDescription(descriptions.get(index));
-      taskFromFront.setCreated_at(dates.get(index).getAttribute("value"));
+      taskFromFront.setCreatedAt(dates.get(index).getAttribute(ATTRIBUTE_VALUE));
 
       index++;
 
@@ -61,5 +62,8 @@ public class TheTasksOnTheFront implements Question<Boolean> {
 
     actor.attemptsTo(Logout.fromApp());
     return true;
+  }
+
+  private TheTasksOnTheFront() {
   }
 }

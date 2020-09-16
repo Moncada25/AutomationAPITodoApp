@@ -2,8 +2,8 @@ package com.bookverse.certification.packapps.tasks;
 
 import static com.bookverse.certification.packapps.utils.Constants.EDIT_GAME_URL;
 import static com.bookverse.certification.packapps.utils.Constants.EDIT_TASK_URL;
+import static com.bookverse.certification.packapps.utils.Constants.LOGIN_FRONT;
 
-import com.bookverse.certification.packapps.userinterfaces.LoginElements;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -34,7 +34,7 @@ public class Search implements Task {
   public <T extends Actor> void performAs(T actor) {
 
     actor.attemptsTo(
-        Open.browserOn(new LoginElements()),
+        Open.url(LOGIN_FRONT),
         UserLogin.successfully(user, password)
     );
 

@@ -5,6 +5,7 @@ import static com.bookverse.certification.packapps.userinterfaces.EditGameOnFron
 import static com.bookverse.certification.packapps.userinterfaces.ListGamesOnFrontElements.DESCRIPTION_GAME;
 import static com.bookverse.certification.packapps.userinterfaces.ListGamesOnFrontElements.IMAGE_GAME;
 import static com.bookverse.certification.packapps.userinterfaces.ListGamesOnFrontElements.TITLE_GAME;
+import static com.bookverse.certification.packapps.utils.Constants.ATTRIBUTE_VALUE;
 
 import com.bookverse.certification.packapps.interactions.Logout;
 import com.bookverse.certification.packapps.models.Game;
@@ -43,11 +44,11 @@ public class TheGamesOnTheFront implements Question<Boolean> {
 
     for (Game game : resultGamesService) {
 
-      gameFromFront.setId(ids.get(index).getAttribute("value"));
+      gameFromFront.setId(ids.get(index).getAttribute(ATTRIBUTE_VALUE));
       gameFromFront.setTitle(titles.get(index));
       gameFromFront.setDescription(descriptions.get(index));
       gameFromFront.setImage(images.get(index).getAttribute("src"));
-      gameFromFront.setCreated_at(dates.get(index).getAttribute("value"));
+      gameFromFront.setCreatedAt(dates.get(index).getAttribute(ATTRIBUTE_VALUE));
 
       index++;
 
@@ -59,4 +60,5 @@ public class TheGamesOnTheFront implements Question<Boolean> {
     actor.attemptsTo(Logout.fromApp());
     return true;
   }
+
 }

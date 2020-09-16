@@ -51,7 +51,8 @@ public class ConsultTasksStepDefinitions {
   public void heShouldSeeThatTheFrontendTaskAreTheSameAsTheAPI() {
     theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
         ServiceNotResponse.class, TASKS_SERVICE_NOT_RESPONSE));
-    theActorInTheSpotlight().should(seeThat(TheTaskEditOnTheFront.correspondToTheOfTheService()).orComplainWith(FrontendNotPaint.class, TASKS_OF_FRONT_NOT_FOUND));
+    theActorInTheSpotlight().should(seeThat(TheTaskEditOnTheFront.correspondToTheOfTheService())
+        .orComplainWith(FrontendNotPaint.class, TASKS_OF_FRONT_NOT_FOUND));
   }
 
   @When("^he gets the tasks from the json by user (.*)$")
@@ -72,15 +73,17 @@ public class ConsultTasksStepDefinitions {
   public void heShouldSeeThatTheFrontendTasksAreTheSameAsTheApi() {
     theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
         ServiceNotResponse.class, TASKS_SERVICE_NOT_RESPONSE));
-    theActorInTheSpotlight().should(seeThat(TheTasksOnTheFront.correspondToThoseOfTheService()).orComplainWith(
-        FrontendNotPaint.class, TASKS_OF_FRONT_NOT_FOUND));
+    theActorInTheSpotlight()
+        .should(seeThat(TheTasksOnTheFront.correspondToThoseOfTheService()).orComplainWith(
+            FrontendNotPaint.class, TASKS_OF_FRONT_NOT_FOUND));
   }
 
   @Then("^he should see that the json tasks are the same as the API$")
   public void heShouldSeeThatTheJsonTasksAreTheSameAsTheApi() {
     theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(200)).orComplainWith(
         ServiceNotResponse.class, TASKS_SERVICE_NOT_RESPONSE));
-    theActorInTheSpotlight().should(seeThat(TheTasksOnTheJson.correspondToThoseOfTheService()).orComplainWith(
-        JsonNotFound.class, TASKS_OF_JSON_NOT_FOUND));
+    theActorInTheSpotlight()
+        .should(seeThat(TheTasksOnTheJson.correspondToThoseOfTheService()).orComplainWith(
+            JsonNotFound.class, TASKS_OF_JSON_NOT_FOUND));
   }
 }

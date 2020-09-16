@@ -3,9 +3,9 @@ package com.bookverse.certification.packapps.tasks;
 import static com.bookverse.certification.packapps.userinterfaces.NavBarElements.MENU_GAMES;
 import static com.bookverse.certification.packapps.userinterfaces.NavBarElements.MENU_LINK;
 import static com.bookverse.certification.packapps.userinterfaces.NavBarElements.MENU_TASKS;
+import static com.bookverse.certification.packapps.utils.Constants.LOGIN_FRONT;
 import static com.bookverse.certification.packapps.utils.Constants.ROUTE_GAMES;
 
-import com.bookverse.certification.packapps.userinterfaces.LoginElements;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -34,7 +34,7 @@ public class GoTo implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
-        Open.browserOn(new LoginElements()),
+        Open.url(LOGIN_FRONT),
         UserLogin.successfully(user, password),
         Check.whether(route.equals(ROUTE_GAMES)).
             andIfSo(Click.on(MENU_GAMES)).

@@ -28,8 +28,9 @@ public class TheGamesOnTheJson implements Question<Boolean> {
         .fromJson(GAMES_IN_JSON_FORMAT.resolveFor(actor).getText(), gamesType);
     Collection<Game> resultGamesService = SerenityRest.lastResponse().body().as(gamesType);
 
-    System.out.println("\nResult of /games on service: " + resultGamesWeb.toString());
-
     return resultGamesWeb.toString().equals(resultGamesService.toString());
+  }
+
+  private TheGamesOnTheJson() {
   }
 }

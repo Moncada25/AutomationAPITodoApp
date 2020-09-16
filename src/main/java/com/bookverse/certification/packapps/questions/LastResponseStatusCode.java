@@ -10,4 +10,7 @@ public class LastResponseStatusCode {
   public static Question<Boolean> is(int code) {
     return a -> SerenityRest.lastResponse().statusCode() == code;
   }
+
+  private LastResponseStatusCode() {
+  }
 }
