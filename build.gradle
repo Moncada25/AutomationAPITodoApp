@@ -1,4 +1,4 @@
-group 'com.bookverse.certification.packapps'
+group 'com.bookverse.certification.todoapp'
 version '1.0-SNAPSHOT'
 
 repositories {
